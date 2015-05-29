@@ -18,3 +18,20 @@ function wordReplace(string, arrayOfIndex, word) {
   string = arrayOfWords.join(" ");
   return string;
 }
+
+function findAndReplace(string, wordToFind, wordToReplace) {
+  var arrayOfIndex = wordFind(string, wordToFind);
+  var stringReturn = wordReplace(string, arrayOfIndex, wordToReplace)
+  return stringReturn
+}
+
+$(document).ready(function() {
+  $("form#input").submit(function(event) {
+    var string = ($("input#string").val());
+    var wordToFind = ($("input#wordToFind").val());
+    var wordToReplace = ($("input#wordToReplace").val());
+    var stringPrint = findAndReplace(string, wordToFind, wordToReplace);
+    $("p#results").text(stringPrint);
+    event.preventDefault();
+  });
+})
